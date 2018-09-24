@@ -24,22 +24,26 @@ public class MainActivityText {
     @Rule
     public ActivityTestRule<MainActivity> mActivity = new ActivityTestRule<>(MainActivity.class);
 
+    private String getString(int id) {
+        return mActivity.getActivity().getResources().getString(id);
+    }
+
     @Test
     public void empty_ntd() {
         onView(withId(R.id.btn_go)).perform(click());
-        onView(withText("Problem")).check(matches(isDisplayed()));
-        onView(withText("Please enter your NTD amount")).check(matches(isDisplayed()));
+        onView(withText(getString(R.string.problem))).check(matches(isDisplayed()));
+        onView(withText(getString(R.string.please_enter_ntd))).check(matches(isDisplayed()));
     }
 
     @Test
     public void can_show_result () {
         onView(withId(R.id.ntd)).perform(click()).perform(typeText("10000"));
         onView(withId(R.id.btn_go)).perform(click());
-        onView(withText("Result")).check(matches(isDisplayed()));
+        onView(withText(R.string.result)).check(matches(isDisplayed()));
 
-        String result = "USD is 323.6246\nJPY is 37037.035";
+        String result = getString(R.string.usd_is) + "323.6246\n" + getString(R.string.jpy_is) + "37037.035";
         onView(withText(result)).check(matches(isDisplayed()));
-        onView(withText("OK")).perform(click());
+        onView(withText(getString(R.string.ok))).perform(click());
         onView(withId(R.id.us)).check(matches(withText("323.624603")));
         onView(withId(R.id.jp)).check(matches(withText("37037.035156")));
     }

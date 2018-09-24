@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(this)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("OK", null)
+                .setPositiveButton(R.string.ok, null)
                 .show();
     }
 
-    protected void calculateCurrency(View view) {
+    public void calculateCurrency(View view) {
         if ("".equals(this.ntd.getText().toString())) {
-            displayDialog("Problem", "Please enter your NTD amount");
+            displayDialog(getString(R.string.problem), getString(R.string.please_enter_ntd));
             return;
         }
         float ntd = Float.parseFloat(this.ntd.getText().toString());
@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         float usd = convertToUSD(ntd);
         float jpy = convertToJPY(ntd);
 
-        String message = "USD is " + usd + NEW_LINE + "JPY is " + jpy;
+        String message = getString(R.string.usd_is) + usd + NEW_LINE + getString(R.string.jpy_is) + jpy;
 
-        displayDialog("Result", message);
+        displayDialog(getString(R.string.result), message);
         us.setText(String.format(Locale.getDefault(), "%f", usd));
         jp.setText(String.format(Locale.getDefault(), "%f", jpy));
     }
