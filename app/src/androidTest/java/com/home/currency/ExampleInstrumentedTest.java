@@ -1,4 +1,4 @@
-package currency.home.com.currencty;
+package com.home.currency;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("currency.home.com.currencty", appContext.getPackageName());
+        assertEquals("com.home.currency", appContext.getPackageName());
     }
 }

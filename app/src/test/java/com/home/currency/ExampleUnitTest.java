@@ -1,4 +1,4 @@
-package currency.home.com.currencty;
+package com.home.currency;
 
 import org.junit.Test;
 
