@@ -1,4 +1,4 @@
-package currency.home.com.currencty;
+package com.home.currency;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

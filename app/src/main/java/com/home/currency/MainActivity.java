@@ -1,4 +1,4 @@
-package currency.home.com.currencty;
+package com.home.currency;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
